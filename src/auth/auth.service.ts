@@ -1,8 +1,10 @@
-import { BadRequestException, Injectable } from '@nestjs/common';
+import { BadRequestException, Inject, Injectable } from '@nestjs/common';
+import { ConfigType } from '@nestjs/config';
 import { JwtService } from '@nestjs/jwt';
 import { randomUUID } from 'crypto';
-import { BcryptService } from './bcrypt.service';
 
+import jwtConfig from '../common/config/jwt.config';
+import { BcryptService } from './bcrypt.service';
 import { SignInDto } from './dto/sign-in.dto';
 import { SignUpDto } from './dto/sign-up.dto';
 
@@ -17,6 +19,8 @@ export class AuthService {
   private users: User[] = [];
 
   constructor(
+    @Inject(jwtConfig.KEY)
+    private readonly jwtConfiguration: ConfigType<typeof jwtConfig>,
     private readonly bcryptService: BcryptService,
     private readonly jwtService: JwtService,
   ) {}
@@ -57,8 +61,8 @@ export class AuthService {
         email: user.email,
       },
       {
-        expiresIn: 3600,
-        secret: 'super-secret',
+        secret: this.jwtConfiguration.secret,
+        expiresIn: this.jwtConfiguration.accessTokenTtl,
       },
     );
 
