@@ -1,48 +1,52 @@
-import { BadRequestException, Inject, Injectable } from '@nestjs/common';
+import {
+  BadRequestException,
+  ConflictException,
+  Inject,
+  Injectable,
+} from '@nestjs/common';
 import { ConfigType } from '@nestjs/config';
 import { JwtService } from '@nestjs/jwt';
-import { randomUUID } from 'crypto';
+import { InjectRepository } from '@nestjs/typeorm';
+import { Repository } from 'typeorm';
 
 import jwtConfig from '../common/config/jwt.config';
+import { MysqlErrorCode } from '../common/enums/error-codes.enum';
+import { User } from '../users/entities/user.entitiy';
 import { BcryptService } from './bcrypt.service';
 import { SignInDto } from './dto/sign-in.dto';
 import { SignUpDto } from './dto/sign-up.dto';
 
-type User = {
-  id: string;
-  email: string;
-  password: string;
-};
-
 @Injectable()
 export class AuthService {
-  private users: User[] = [];
-
   constructor(
     @Inject(jwtConfig.KEY)
     private readonly jwtConfiguration: ConfigType<typeof jwtConfig>,
     private readonly bcryptService: BcryptService,
     private readonly jwtService: JwtService,
+    @InjectRepository(User)
+    private readonly userRepository: Repository<User>,
   ) {}
 
   async signUp(signUpDto: SignUpDto) {
     const { email, password } = signUpDto;
 
-    const hashedPassword = await this.bcryptService.hash(password);
-
-    const user = {
-      id: randomUUID(),
-      email,
-      password: hashedPassword,
-    };
-
-    this.users.push(user);
+    try {
+      const user = new User();
+      user.email = email;
+      user.password = await this.bcryptService.hash(password);
+      await this.userRepository.save(user);
+    } catch (error) {
+      if (error.code === MysqlErrorCode.UniqueViolation) {
+        throw new ConflictException(`User [${email}] already exist`);
+      }
+      throw error;
+    }
   }
 
   async signIn(signInDto: SignInDto) {
     const { email, password } = signInDto;
 
-    const user = this.users.find((user) => user.email === email);
+    const user = await this.userRepository.findOneBy({ email });
     if (!user) {
       throw new BadRequestException('Invalid email');
     }
