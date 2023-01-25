@@ -12,15 +12,18 @@ import { validate } from './common/validation/env.validation';
 import { DatabaseModule } from './database/database.module';
 import { UsersModule } from './users/users.module';
 import { JwtAuthGuard } from './auth/guards/jwt-auth.guard';
+import redisConfig from './common/config/redis.config';
+import { RedisModule } from './redis/redis.module';
 
 @Module({
   imports: [
     ConfigModule.forRoot({
       isGlobal: true,
-      load: [appConfig, jwtConfig, databaseConfig],
+      load: [appConfig, jwtConfig, databaseConfig, redisConfig],
       validate,
     }),
     DatabaseModule,
+    RedisModule,
     AuthModule,
     UsersModule,
   ],

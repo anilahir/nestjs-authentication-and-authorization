@@ -3,6 +3,7 @@ import {
   IsEnum,
   IsNotEmpty,
   IsNumber,
+  IsOptional,
   IsString,
   validateSync,
 } from 'class-validator';
@@ -36,6 +37,30 @@ class EnvironmentVariables {
   @IsString()
   @IsNotEmpty()
   DB_NAME: string;
+
+  @IsString()
+  @IsNotEmpty()
+  REDIS_HOST: string;
+
+  @IsNumber()
+  @IsNotEmpty()
+  REDIS_PORT: number;
+
+  @IsString()
+  @IsOptional()
+  REDIS_USERNAME: string;
+
+  @IsString()
+  @IsOptional()
+  REDIS_PASSWORD: string;
+
+  @IsNumber()
+  @IsNotEmpty()
+  REDIS_DATABASE: number;
+
+  @IsString()
+  @IsNotEmpty()
+  REDIS_KEY_PREFIX: string;
 
   @IsString()
   @IsNotEmpty()
