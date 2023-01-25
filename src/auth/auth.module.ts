@@ -15,5 +15,6 @@ import jwtConfig from '../common/config/jwt.config';
   ],
   controllers: [AuthController],
   providers: [AuthService, BcryptService],
+  exports: [JwtModule],
 })
 export class AuthModule {}

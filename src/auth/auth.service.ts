@@ -11,6 +11,7 @@ import { Repository } from 'typeorm';
 
 import jwtConfig from '../common/config/jwt.config';
 import { MysqlErrorCode } from '../common/enums/error-codes.enum';
+import { ActiveUserData } from '../common/interfaces/active-user-data.interface';
 import { User } from '../users/entities/user.entitiy';
 import { BcryptService } from './bcrypt.service';
 import { SignInDto } from './dto/sign-in.dto';
@@ -61,9 +62,9 @@ export class AuthService {
 
     const accessToken = await this.jwtService.signAsync(
       {
-        sub: user.id,
+        id: user.id,
         email: user.email,
-      },
+      } as ActiveUserData,
       {
         secret: this.jwtConfiguration.secret,
         expiresIn: this.jwtConfiguration.accessTokenTtl,
