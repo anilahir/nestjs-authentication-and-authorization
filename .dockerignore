@@ -1,0 +1,17 @@
+# Versioning and metadata
+.vscode
+.git
+.gitignore
+.dockerignore
+
+# Build dependencies
+dist
+node_modules
+coverage
+
+# Environment (contains sensitive data)
+.env
+
+# Files not required for production
+Dockerfile
+README.md
