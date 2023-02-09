@@ -1,31 +1,27 @@
-# NestJS Authentication and Authorization
+# NestJS Authentication
+
+![Prettier](https://img.shields.io/badge/Code%20style-prettier-informational?logo=prettier&logoColor=white)
+[![GPL v3 License](https://img.shields.io/badge/License-GPLv3-green.svg)](./LICENSE)
+[![HitCount](https://hits.dwyl.com/anilahir/nestjs-authentication-and-authorization.svg)](https://hits.dwyl.com/anilahir/nestjs-authentication-and-authorization)
 
 ## Description
 
-NestJS authentication and authorization using Bcrypt, JWT & Redis
+NestJS authentication with Bcrypt, JWT and Redis
 
-## APIs
+## Features
 
-1. **Sign up**
-2. **Sign in**
-3. **Show my profile**
-4. **Sign out**
-
-## Prerequisites
-
-- [Node.js v14 or above](https://nodejs.org/en/download/)
-- [npm v7 or above](https://github.blog/2020-10-13-presenting-v7-0-0-of-the-npm-cli/)
-- [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git/)
+1. Register
+2. Login
+3. Show profile
+4. Logout
 
 ## Technologies stack:
 
-- [Typescript](https://www.typescriptlang.org/)
-- [Nest.js](https://nestjs.com/)
-- [JWT](https://jwt.io/)
-- [Bcrypt](https://www.npmjs.com/package/bcrypt)
-- [TypeORM](https://typeorm.io/) (ORM) + [MySQL](https://www.mysql.com/)
-- [Redis](https://redis.io/)
-- [Docker](https://www.docker.com/products/docker-desktop)
+- JWT
+- Bcrypt
+- TypeORM + MySQL
+- Redis
+- Docker
 
 ## Setup
 
@@ -54,12 +50,28 @@ $ npm run start:dev
 $ npm run start:prod
 ```
 
-## Docker
+## Docker for development
 
 ```bash
-# start application
+# start the application
 $ npm run docker:up
 
-# down application
+# stop the application
 $ npm run docker:down
 ```
+
+## Author
+
+👤 **Anil Ahir**
+
+- Twitter: [@anilahir220](https://twitter.com/anilahir220)
+- Github: [@anilahir](https://github.com/anilahir)
+- LinkedIn: [@anilahir](https://www.linkedin.com/in/anilahir)
+
+## Show your support
+
+Give a ⭐️ if this project helped you!
+
+## License
+
+Release under the terms of [MIT](./LICENSE)
