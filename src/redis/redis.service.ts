@@ -1,31 +1,14 @@
+import { Inject, Injectable } from '@nestjs/common';
 import { Redis } from 'ioredis';
 
-import {
-  Inject,
-  Injectable,
-  OnApplicationShutdown,
-  OnModuleInit,
-} from '@nestjs/common';
-import { ConfigType } from '@nestjs/config';
-
-import redisConfig from '../common/config/redis.config';
+import { IORedisKey } from './redis.constants';
 
 @Injectable()
-export class RedisService implements OnApplicationShutdown, OnModuleInit {
-  private redisClient: Redis;
-
+export class RedisService {
   constructor(
-    @Inject(redisConfig.KEY)
-    private readonly redisConfiguration: ConfigType<typeof redisConfig>,
+    @Inject(IORedisKey)
+    private readonly redisClient: Redis,
   ) {}
-
-  async onModuleInit() {
-    this.redisClient = new Redis(this.redisConfiguration);
-  }
-
-  async onApplicationShutdown(signal?: string) {
-    await this.redisClient.quit();
-  }
 
   async getKeys(pattern?: string): Promise<string[]> {
     return await this.redisClient.keys(pattern);
