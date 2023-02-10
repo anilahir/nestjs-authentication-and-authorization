@@ -6,7 +6,7 @@
 
 ## Description
 
-NestJS authentication with Bcrypt, JWT and Redis
+NestJS Authentication without Passport using Bcrypt, JWT and Redis
 
 ## Features
 
@@ -59,6 +59,11 @@ $ npm run docker:up
 # stop the application
 $ npm run docker:down
 ```
+
+## References
+
+- [NestJS Authentication without Passport](https://trilon.io/blog/nestjs-authentication-without-passport)
+- [NestJS, Redis and Postgres local development with Docker Compose](https://www.tomray.dev/nestjs-docker-compose-postgres)
 
 ## Author
 
