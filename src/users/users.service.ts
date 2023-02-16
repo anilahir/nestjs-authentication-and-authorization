@@ -11,7 +11,7 @@ export class UsersService {
     private readonly userRepository: Repository<User>,
   ) {}
 
-  async getMe(userId: string) {
+  async getMe(userId: string): Promise<User> {
     const user = await this.userRepository.findOneBy({ id: userId });
     if (!user) {
       throw new BadRequestException('User not found');

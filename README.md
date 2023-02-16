@@ -60,6 +60,10 @@ $ npm run docker:up
 $ npm run docker:down
 ```
 
+## Swagger documentation
+
+- [localhost:3000/docs](http://localhost:3000/docs)
+
 ## References
 
 - [NestJS Authentication without Passport](https://trilon.io/blog/nestjs-authentication-without-passport)

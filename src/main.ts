@@ -4,9 +4,12 @@ import { NestFactory } from '@nestjs/core';
 
 import { AppModule } from './app.module';
 import { TransformInterceptor } from './common/interceptors/transform.interceptor';
+import { setupSwagger } from './swagger';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
+
+  setupSwagger(app);
 
   app.useGlobalInterceptors(new TransformInterceptor());
 
@@ -28,4 +31,5 @@ async function bootstrap() {
     console.log(`Application running at ${port}`);
   });
 }
+
 bootstrap();

@@ -69,6 +69,22 @@ class EnvironmentVariables {
   @IsNotEmpty()
   @IsNumber()
   JWT_ACCESS_TOKEN_TTL: number;
+
+  @IsString()
+  @IsNotEmpty()
+  SWAGGER_SITE_TITLE: string;
+
+  @IsString()
+  @IsNotEmpty()
+  SWAGGER_DOC_TITLE: string;
+
+  @IsString()
+  @IsNotEmpty()
+  SWAGGER_DOC_DESCRIPTION: string;
+
+  @IsString()
+  @IsNotEmpty()
+  SWAGGER_DOC_VERSION: string;
 }
 
 export function validate(config: Record<string, unknown>) {

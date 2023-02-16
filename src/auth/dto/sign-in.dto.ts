@@ -1,3 +1,4 @@
+import { ApiProperty } from '@nestjs/swagger';
 import {
   IsEmail,
   IsNotEmpty,
@@ -7,12 +8,19 @@ import {
 } from 'class-validator';
 
 export class SignInDto {
-  @IsNotEmpty()
+  @ApiProperty({
+    description: 'Email of user',
+    example: 'atest@email.com',
+  })
   @IsEmail()
   @MaxLength(255)
+  @IsNotEmpty()
   readonly email: string;
 
-  @IsNotEmpty()
+  @ApiProperty({
+    description: 'Password of user',
+    example: 'Pass#123',
+  })
   @MinLength(8, {
     message: 'password too short',
   })
@@ -22,5 +30,6 @@ export class SignInDto {
   @Matches(/((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$/, {
     message: 'password too weak',
   })
+  @IsNotEmpty()
   readonly password: string;
 }

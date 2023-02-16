@@ -14,12 +14,13 @@ import { UsersModule } from './users/users.module';
 import { JwtAuthGuard } from './auth/guards/jwt-auth.guard';
 import redisConfig from './common/config/redis.config';
 import { RedisModule } from './redis/redis.module';
+import swaggerConfig from './common/config/swagger.config';
 
 @Module({
   imports: [
     ConfigModule.forRoot({
       isGlobal: true,
-      load: [appConfig, jwtConfig, databaseConfig, redisConfig],
+      load: [appConfig, jwtConfig, databaseConfig, redisConfig, swaggerConfig],
       validate,
     }),
     DatabaseModule,

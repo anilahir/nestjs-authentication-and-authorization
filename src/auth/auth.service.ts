@@ -31,7 +31,7 @@ export class AuthService {
     private readonly redisService: RedisService,
   ) {}
 
-  async signUp(signUpDto: SignUpDto) {
+  async signUp(signUpDto: SignUpDto): Promise<void> {
     const { email, password } = signUpDto;
 
     try {
@@ -47,7 +47,7 @@ export class AuthService {
     }
   }
 
-  async signIn(signInDto: SignInDto) {
+  async signIn(signInDto: SignInDto): Promise<{ accessToken: string }> {
     const { email, password } = signInDto;
 
     const user = await this.userRepository.findOneBy({ email });
