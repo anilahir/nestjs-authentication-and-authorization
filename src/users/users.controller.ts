@@ -7,7 +7,7 @@ import {
 } from '@nestjs/swagger';
 import { ActiveUser } from '../common/decorators/active-user.decorator';
 
-import { User } from './entities/user.entitiy';
+import { User } from './entities/user.entity';
 import { UsersService } from './users.service';
 
 @ApiTags('users')

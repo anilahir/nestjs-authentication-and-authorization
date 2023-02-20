@@ -14,7 +14,7 @@ import jwtConfig from '../common/config/jwt.config';
 import { MysqlErrorCode } from '../common/enums/error-codes.enum';
 import { ActiveUserData } from '../common/interfaces/active-user-data.interface';
 import { RedisService } from '../redis/redis.service';
-import { User } from '../users/entities/user.entitiy';
+import { User } from '../users/entities/user.entity';
 import { BcryptService } from './bcrypt.service';
 import { SignInDto } from './dto/sign-in.dto';
 import { SignUpDto } from './dto/sign-up.dto';
