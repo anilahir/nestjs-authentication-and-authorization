@@ -63,6 +63,14 @@ export class AuthService {
       throw new BadRequestException('Invalid password');
     }
 
+    return await this.generateAccessToken(user);
+  }
+
+  async signOut(userId: string): Promise<void> {
+    this.redisService.delete(`user-${userId}`);
+  }
+
+  async generateAccessToken(user: User): Promise<{ accessToken: string }> {
     const tokenId = randomUUID();
 
     await this.redisService.insert(`user-${user.id}`, tokenId);
@@ -80,9 +88,5 @@ export class AuthService {
     );
 
     return { accessToken };
-  }
-
-  async signOut(userId: string): Promise<void> {
-    this.redisService.delete(`user-${userId}`);
   }
 }
