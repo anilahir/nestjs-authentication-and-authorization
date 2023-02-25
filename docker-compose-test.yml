@@ -4,7 +4,7 @@ services:
     ports:
       - 3306:3306
     environment:
-      MYSQL_RANDOM_ROOT_PASSWORD: true
+      MYSQL_RANDOM_ROOT_PASSWORD: 'true'
       MYSQL_USER: admin
       MYSQL_PASSWORD: test123!
       MYSQL_DATABASE: nestjs-auth
