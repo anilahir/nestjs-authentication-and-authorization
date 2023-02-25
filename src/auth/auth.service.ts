@@ -50,7 +50,11 @@ export class AuthService {
   async signIn(signInDto: SignInDto): Promise<{ accessToken: string }> {
     const { email, password } = signInDto;
 
-    const user = await this.userRepository.findOneBy({ email });
+    const user = await this.userRepository.findOne({
+      where: {
+        email,
+      },
+    });
     if (!user) {
       throw new BadRequestException('Invalid email');
     }
@@ -70,7 +74,9 @@ export class AuthService {
     this.redisService.delete(`user-${userId}`);
   }
 
-  async generateAccessToken(user: User): Promise<{ accessToken: string }> {
+  async generateAccessToken(
+    user: Partial<User>,
+  ): Promise<{ accessToken: string }> {
     const tokenId = randomUUID();
 
     await this.redisService.insert(`user-${user.id}`, tokenId);

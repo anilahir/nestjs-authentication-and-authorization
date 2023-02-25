@@ -12,10 +12,15 @@ export class UsersService {
   ) {}
 
   async getMe(userId: string): Promise<User> {
-    const user = await this.userRepository.findOneBy({ id: userId });
+    const user = await this.userRepository.findOne({
+      where: {
+        id: userId,
+      },
+    });
     if (!user) {
       throw new BadRequestException('User not found');
     }
+
     return user;
   }
 }

@@ -1,13 +1,43 @@
-name: Continuous Integration Testing
+name: CI Testing
 
 on: push
 
 jobs:
+  unit-tests:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [16.x, 18.x]
+        test: [nestjs-authentication-and-authorization]
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Use NodeJS ${{ matrix.node-version }}
+        uses: actions/setup-node@v2
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: Setup npm
+        run: npm install -g npm
+
+      - name: Setup Nodejs with npm caching
+        uses: actions/setup-node@v2
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: npm
+
+      - name: Install dependencies
+        run: npm i
+
+      - name: Run unit test
+        run: npm run test:unit
+
   e2e-test:
     runs-on: ubuntu-latest
     strategy:
       matrix:
         node-version: [16.x, 18.x]
+    needs: [unit-tests]
     steps:
       - uses: actions/checkout@v1
       - name: Use Node.js ${{ matrix.node-version }}

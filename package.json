@@ -44,6 +44,7 @@
     "typeorm": "^0.3.11"
   },
   "devDependencies": {
+    "@golevelup/ts-jest": "^0.3.5",
     "@nestjs/cli": "^9.0.0",
     "@nestjs/schematics": "^9.0.0",
     "@nestjs/testing": "^9.0.0",
