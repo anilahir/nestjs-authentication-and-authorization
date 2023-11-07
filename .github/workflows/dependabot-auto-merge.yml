@@ -1,4 +1,4 @@
-name: Dependabot auto rebase squash and merge if CI Testing succeeds
+name: Dependabot auto-merge PRs if CI Testing succeeds
 
 on:
   pull_request_target:
@@ -22,13 +22,8 @@ jobs:
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Rebase pull request
+      - name: Enable auto-merge for Dependabot PRs
         # if: contains(steps.metadata.outputs.dependency-names, 'my-dependency') && steps.metadata.outputs.update-type == 'version-update:semver-patch'
-        run: gh pr rebase --auto "${{ github.event.pull_request.html_url }}" --base "${{ github.event.pull_request.base.ref }}"
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Squash and auto merge
-        run: gh pr merge "${{ github.event.pull_request.html_url }}" --squash --auto --delete-branch
+        run: gh pr merge --auto --rebase --squash --delete-branch "${{ github.event.pull_request.html_url }}"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
