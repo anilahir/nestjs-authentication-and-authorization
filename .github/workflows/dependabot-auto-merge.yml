@@ -1,4 +1,4 @@
-name: Dependabot auto-squash-merge if CI Testing succeeds
+name: Dependabot auto rebase squash and merge if CI Testing succeeds
 
 on:
   pull_request_target:
@@ -6,6 +6,7 @@ on:
     workflows: ['CI Testing']
     types:
       - completed
+
 permissions:
   pull-requests: write
   contents: write
@@ -19,10 +20,15 @@ jobs:
         id: metadata
         uses: dependabot/fetch-metadata@v1.6.0
         with:
-          github-token: '${{ secrets.GITHUB_TOKEN }}'
-      - name: Check for auto-squash-merge condition
-        #  if: ${{contains(steps.metadata.outputs.dependency-names, 'my-dependency') && steps.metadata.outputs.update-type == 'version-update:semver-patch'}}
-        run: gh pr merge "${PR_URL}" --squash --auto --delete-branch
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Rebase pull request
+        # if: contains(steps.metadata.outputs.dependency-names, 'my-dependency') && steps.metadata.outputs.update-type == 'version-update:semver-patch'
+        run: gh pr rebase --auto "${{ github.event.pull_request.html_url }}" --base "${{ github.event.pull_request.base.ref }}"
         env:
-          PR_URL: ${{github.event.pull_request.html_url}}
-          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Squash and auto merge
+        run: gh pr merge "${{ github.event.pull_request.html_url }}" --squash --auto --delete-branch
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
