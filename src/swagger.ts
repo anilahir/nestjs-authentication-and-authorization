@@ -7,6 +7,8 @@ import {
   SwaggerModule,
 } from '@nestjs/swagger';
 
+import metadata from './metadata';
+
 export const setupSwagger = async (app: INestApplication) => {
   const configService = app.get(ConfigService);
   const swaggerConfig = configService.get('swagger');
@@ -21,6 +23,8 @@ export const setupSwagger = async (app: INestApplication) => {
   const options: SwaggerDocumentOptions = {
     operationIdFactory: (controllerKey: string, methodKey: string) => methodKey,
   };
+
+  await SwaggerModule.loadPluginMetadata(metadata);
 
   const document = SwaggerModule.createDocument(app, config, options);
 
