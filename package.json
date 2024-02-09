@@ -37,7 +37,7 @@
     "class-validator": "^0.14.1",
     "ioredis": "^5.3.2",
     "mysql2": "^3.9.1",
-    "reflect-metadata": "^0.1.14",
+    "reflect-metadata": "^0.2.1",
     "rimraf": "^5.0.5",
     "rxjs": "^7.8.1",
     "swagger-ui-express": "^5.0.0",
