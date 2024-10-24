@@ -53,7 +53,7 @@
     "@swc/jest": "^0.2.36",
     "@types/bcrypt": "^5.0.2",
     "@types/express": "^5.0.0",
-    "@types/jest": "29.5.13",
+    "@types/jest": "29.5.14",
     "@types/node": "^22.7.9",
     "@types/supertest": "^6.0.2",
     "@typescript-eslint/eslint-plugin": "^8.11.0",
