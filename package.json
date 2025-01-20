@@ -49,7 +49,7 @@
     "@nestjs/schematics": "^10.2.3",
     "@nestjs/testing": "^10.4.15",
     "@swc/cli": "^0.6.0",
-    "@swc/core": "^1.10.7",
+    "@swc/core": "^1.10.8",
     "@swc/jest": "^0.2.37",
     "@types/bcrypt": "^5.0.2",
     "@types/express": "^5.0.0",
