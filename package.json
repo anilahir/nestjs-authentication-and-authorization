@@ -45,7 +45,7 @@
   },
   "devDependencies": {
     "@golevelup/ts-jest": "^0.6.1",
-    "@nestjs/cli": "^10.4.9",
+    "@nestjs/cli": "^11.0.0",
     "@nestjs/schematics": "^11.0.0",
     "@nestjs/testing": "^10.4.15",
     "@swc/cli": "^0.6.0",
