@@ -47,7 +47,7 @@
     "@golevelup/ts-jest": "^0.6.2",
     "@nestjs/cli": "^11.0.6",
     "@nestjs/schematics": "^11.0.5",
-    "@nestjs/testing": "^11.0.16",
+    "@nestjs/testing": "^11.0.17",
     "@swc/cli": "^0.7.2",
     "@swc/core": "^1.11.20",
     "@swc/jest": "^0.2.37",
