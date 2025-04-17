@@ -29,7 +29,7 @@
     "@nestjs/core": "^11.0.19",
     "@nestjs/jwt": "^11.0.0",
     "@nestjs/mapped-types": "*",
-    "@nestjs/platform-express": "^11.0.19",
+    "@nestjs/platform-express": "^11.0.20",
     "@nestjs/swagger": "^11.1.3",
     "@nestjs/typeorm": "^11.0.0",
     "bcrypt": "^5.1.1",
