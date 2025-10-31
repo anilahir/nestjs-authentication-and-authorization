@@ -38,7 +38,7 @@
     "ioredis": "^5.8.2",
     "mysql2": "^3.15.3",
     "reflect-metadata": "^0.2.2",
-    "rimraf": "^6.0.1",
+    "rimraf": "^6.1.0",
     "rxjs": "^7.8.2",
     "swagger-ui-express": "^5.0.1",
     "typeorm": "^0.3.27"
