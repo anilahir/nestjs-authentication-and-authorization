@@ -52,7 +52,7 @@
     "@swc/core": "^1.15.3",
     "@swc/jest": "^0.2.39",
     "@types/bcrypt": "^6.0.0",
-    "@types/express": "^5.0.5",
+    "@types/express": "^5.0.6",
     "@types/jest": "30.0.0",
     "@types/node": "^24.10.1",
     "@types/supertest": "^6.0.3",
