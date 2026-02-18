@@ -56,7 +56,7 @@
     "@types/jest": "30.0.0",
     "@types/node": "^25.2.3",
     "@types/supertest": "^6.0.3",
-    "@typescript-eslint/eslint-plugin": "^8.55.0",
+    "@typescript-eslint/eslint-plugin": "^8.56.0",
     "@typescript-eslint/parser": "^8.56.0",
     "eslint": "^10.0.0",
     "eslint-config-prettier": "^10.1.8",
