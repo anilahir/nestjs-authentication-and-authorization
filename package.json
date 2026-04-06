@@ -24,7 +24,7 @@
     "docker:down": "docker-compose down"
   },
   "dependencies": {
-    "@nestjs/common": "^11.1.17",
+    "@nestjs/common": "^11.1.18",
     "@nestjs/config": "^4.0.3",
     "@nestjs/core": "^11.1.17",
     "@nestjs/jwt": "^11.0.2",
