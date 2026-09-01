@@ -62,7 +62,7 @@
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-prettier": "^5.5.6",
     "husky": "^9.1.7",
-    "jest": "^30.4.2",
+    "jest": "^30.5.0",
     "lint-staged": "^17.4.1",
     "prettier": "^3.9.6",
     "source-map-support": "^0.5.21",
