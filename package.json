@@ -30,7 +30,7 @@
     "@nestjs/jwt": "^12.0.1",
     "@nestjs/mapped-types": "*",
     "@nestjs/platform-express": "^12.0.1",
-    "@nestjs/swagger": "^12.0.0",
+    "@nestjs/swagger": "^12.0.1",
     "@nestjs/typeorm": "^12.0.1",
     "bcrypt": "^6.0.0",
     "class-transformer": "^0.5.1",
