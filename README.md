@@ -2,7 +2,7 @@
 
 ![Workflow Test](https://github.com/anilahir/nestjs-authentication-and-authorization/actions/workflows/ci.yml/badge.svg)
 ![Prettier](https://img.shields.io/badge/Code%20style-prettier-informational?logo=prettier&logoColor=white)
-[![GPL v3 License](https://img.shields.io/badge/License-GPLv3-green.svg)](./LICENSE)
+[![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](./LICENSE)
 [![HitCount](https://hits.dwyl.com/anilahir/nestjs-authentication-and-authorization.svg)](https://hits.dwyl.com/anilahir/nestjs-authentication-and-authorization)
 
 ## Description
